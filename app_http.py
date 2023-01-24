@@ -10,7 +10,7 @@ class MyHandler(BaseHTTPRequestHandler):
 			filename = './index.html'
 			self.send_response(200)
 			self.send_header('Content-type', 'text/html')
-		self.end_header()
+		self.end_headers()
 
 		print(self.path)
 		print(self.headers)
@@ -20,4 +20,4 @@ class MyHandler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
 	httpd = HTTPServer(('0.0.0.0', 8000), MyHandler)
-	httpd.serv_forever()
+	httpd.serve_forever()

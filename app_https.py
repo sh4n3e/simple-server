@@ -11,7 +11,7 @@ class MyHandler(BaseHTTPRequestHandler):
 			filename = './index.html'
 			self.send_response(200)
 			self.send_header('Content-type', 'text/html')
-		self.end_header()
+		self.end_headers()
 
 		print(self.path)
 		print(self.headers)
@@ -25,4 +25,4 @@ if __name__ == "__main__":
 	ctx.check_hostname = False
 	ctx.load_cert_chain(certfile='./cert.pem', keyfile='./key.pem')
 	httpd.socket = ctx.wrap_socket(httpd.socket, server_side=True)
-	httpd.serv_forever()
+	httpd.serve_forever()
